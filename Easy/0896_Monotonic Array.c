@@ -6,7 +6,7 @@ bool isMonotonic(int* A, int ASize){
     int prev = A[0];
     bool is_asc = false;
     bool is_des = false;
-    for (int i = 1; i < ASize; ++i) {
+    for (int i = 1; i < ASize; i++) {
         if (A[i] == prev) {
             continue;
         }
