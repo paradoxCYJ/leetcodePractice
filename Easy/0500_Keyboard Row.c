@@ -1,3 +1,4 @@
+
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -27,11 +28,7 @@ char ** findWords(char ** words, int wordsSize, int* returnSize){
         if( tmp == index ){
             tmpLength = strlen(words[i]);
             result[*returnSize] = malloc( tmpLength * sizeof(char) + 1 );
-            for( int a = 0; a < tmpLength; a++ ){
-                result[*returnSize][a] = words[i][a];
-            }
-            result[*returnSize][tmpLength] = '\0';
-            
+            strcpy(result[*returnSize], words[i]);
             *returnSize = *returnSize + 1;
         }
         
