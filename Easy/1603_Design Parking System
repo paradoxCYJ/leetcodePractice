@@ -1,0 +1,33 @@
+typedef struct {
+    int parkLots[3];
+    
+} ParkingSystem;
+
+ParkingSystem* parkingSystemCreate(int big, int medium, int small) {
+    ParkingSystem* result = ( ParkingSystem* ) malloc( sizeof( ParkingSystem ) );
+    result->parkLots[0] = big;
+    result->parkLots[1] = medium;
+    result->parkLots[2] = small;
+    return result;
+}
+
+bool parkingSystemAddCar(ParkingSystem* obj, int carType) {
+    if( !obj->parkLots[carType - 1] ){
+        return false;
+    }
+    
+    obj->parkLots[carType - 1] -= 1;
+    return true;
+}
+
+void parkingSystemFree(ParkingSystem* obj) {
+    free( obj );
+}
+
+/**
+ * Your ParkingSystem struct will be instantiated and called as such:
+ * ParkingSystem* obj = parkingSystemCreate(big, medium, small);
+ * bool param_1 = parkingSystemAddCar(obj, carType);
+ 
+ * parkingSystemFree(obj);
+*/
