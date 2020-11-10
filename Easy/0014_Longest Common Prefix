@@ -1,11 +1,18 @@
 char * longestCommonPrefix(char ** strs, int strsSize){
-    if( strsSize == 0 ) return "";    
-    for( int i = 0; i < strlen(strs[0]); i++ ){
+    if( strsSize == 0 ) return "";
+    
+    int maxLength = strlen(strs[0]);
+    for( int i = 1; i < strsSize; i++ ) maxLength = strlen(strs[i]) < maxLength ? strlen(strs[i]) : maxLength;
+    
+    for( int i = 0; i < maxLength; i++ ){
         for( int j = 1; j < strsSize; j++ ){
             if( strs[0][i] == strs[j][i] ) continue;
             strs[0][i] = '\0';
         }
+        
     }
+    
+    for( int i = maxLength; i < strlen(strs[0]); i++ ) strs[0][i] = '\0';
     
     
     return strs[0];
