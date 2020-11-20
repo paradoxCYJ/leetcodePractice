@@ -1,0 +1,16 @@
+bool threeConsecutiveOdds(int* arr, int arrSize){
+    int count = 0;
+    for( int i = 0; i < arrSize; i++ ){
+        if( count == 3 ){
+            break;
+        }
+        else if( !(arr[i] & 1) ){
+            count = 0;
+            continue;
+        }
+        count += 1;
+        
+    }
+    
+    return count == 3;
+}
